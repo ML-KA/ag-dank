@@ -1,3 +1,5 @@
+# Code http://blog.derekfarren.com/2015/02/how-to-implement-large-scale-market.html
+
 def data_pass(basket_list, minSupport, pass_nbr, candidate_dct):
 	for basket in basket_list:
 		candidate_dct = update_candidates(basket, candidate_dct, pass_nbr)
