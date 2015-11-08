@@ -1,4 +1,8 @@
+# -*- coding:utf-8 -*-
 # Code http://blog.derekfarren.com/2015/02/how-to-implement-large-scale-market.html
+import sys
+import codecs
+sys.stdout = codecs.getwriter("utf8")(sys.stdout)
 
 
 def data_pass(basket_list, minSupport, pass_nbr, candidate_dct):
@@ -29,7 +33,7 @@ def update_candidates(item_lst, candidate_dct, pass_nbr):
 
 
 def clear_items(candidate_dct, minSupport, pass_nbr):
-	for item_tuple, cnt in list(candidate_dct.items()):
+	for item_tuple, cnt in candidate_dct.items():
 		if cnt<minSupport or len(item_tuple)<pass_nbr:
 			del candidate_dct[item_tuple]
 	return candidate_dct
@@ -43,26 +47,26 @@ def main(basket_list, support, itemset_size):
 	for i in range(itemset_size):
 		now = time.time()
 		candidate_dct = data_pass(basket_list, support, pass_nbr=i+1, candidate_dct=candidate_dct)
-		print("pass number %i took %f and found %i candidates" % (i+1, time.time()-now, len(candidate_dct)))
+		print "pass number %i took %f and found %i candidates" % (i+1, time.time()-now, len(candidate_dct))
 	return candidate_dct
 
 
 def dumpclean(obj):
     if type(obj) == dict:
-        for k, v in list(obj.items()):
+        for k, v in obj.items():
             if hasattr(v, '__iter__'):
-                print(k)
+                print k
                 dumpclean(v)
             else:
-                print('%s : %s' % (k, v))
+                print '%s : %s' % (k, v)
     elif type(obj) == list:
         for v in obj:
             if hasattr(v, '__iter__'):
                 dumpclean(v)
             else:
-                print(v)
+                print v
     else:
-        print(obj)
+        print obj
 
 # generate lists from sql
 import sqlite3
@@ -87,10 +91,12 @@ basket_list.append(basket)
 #itemsets_dct = main([["Milch", "Mehl", "Muesli"], ["Milch", "Mehl", "Eier"], ["Milch", "Mehl", "Muesli", "Eier", "Keckse"], ["Milch", "Mehl", "Keckse", "Eier"], ["Milch", "Mehl", "Brot", "Wurst"], ["A", "B"], ["A", "B"]], 2, 2)
 
 from pprint import pprint
-#pprint(basket_list)
-itemsets_dct = main(basket_list, 10, 3)
+for b in basket_list:
+	pprint(b)
+#itemsets_dct = main(basket_list, 1, len(basket_list))
 
-for itemset, frequency in itemsets_dct.items():
-	print(frequency, itemset)
+for itemset, frequency in itemsets_dct.iteritems():
+	print itemset, frequency
+
 
 

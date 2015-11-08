@@ -92,5 +92,6 @@ itemsets_dct = main(basket_list, 10, 3)
 
 for itemset, frequency in itemsets_dct.items():
 	print(frequency, itemset)
+res = cursor.execute("select (select count() from feature) as count, * from feature")
 
 
