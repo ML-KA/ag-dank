@@ -30,7 +30,7 @@ def update_candidates(item_lst, candidate_dct, pass_nbr):
 
 def clear_items(candidate_dct, minSupport, pass_nbr):
 	for item_tuple, cnt in list(candidate_dct.items()):
-		if cnt<minSupport or len(item_tuple)<pass_nbr:
+		if cnt<minSupport:
 			del candidate_dct[item_tuple]
 	return candidate_dct
 
@@ -84,13 +84,13 @@ for r in result:
 	previousCarId = r['car_id']
 basket_list.append(basket)
 
-#itemsets_dct = main([["Milch", "Mehl", "Muesli"], ["Milch", "Mehl", "Eier"], ["Milch", "Mehl", "Muesli", "Eier", "Keckse"], ["Milch", "Mehl", "Keckse", "Eier"], ["Milch", "Mehl", "Brot", "Wurst"], ["A", "B"], ["A", "B"]], 2, 2)
+#itemsets_dct = main([["Milch", "Mehl", "Muesli"], ["Milch", "Mehl", "Eier"], ["Milch", "Mehl", "Muesli", "Eier", "Keckse"], ["Milch", "Mehl", "Keckse", "Eier"], ["Milch", "Mehl", "Brot", "Wurst"], ["A", "B"], ["A", "B"]], 2, 4)
 
 from pprint import pprint
 #pprint(basket_list)
-itemsets_dct = main(basket_list, 10, 3)
+itemsets_dct = main(basket_list, 10, 10)
 
 for itemset, frequency in itemsets_dct.items():
-	print(frequency, itemset)
+	print( len(itemset), frequency,itemset)
 
 
