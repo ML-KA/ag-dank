@@ -1,7 +1,7 @@
 PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE `feature` (
-	`car_id`	TEXT,
+	`car_id`	INTEGER,
 	`feature_id`	TEXT,
 	`value_id`	INTEGER,
 	PRIMARY KEY(car_id,feature_id)
