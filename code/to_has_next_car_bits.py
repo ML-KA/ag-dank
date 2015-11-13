@@ -10,11 +10,14 @@ def output_to_bits(filename):
         for feature_id, name in cursor.execute("select * from feature_name"):
             if feature_id in "respid,budget_F,step1_budget".split(","):
                 continue
+            # step 1 and 7 don't have value names, use numbers
             if feature_id == "step1":
-                for i in range(1,10):
+                for i in range(1,10): # 9 motor choices
                     fields.append("step1="+str(i))
+                continue
             if feature_id.startswith("s7_"):
                 fields.append(feature_id+"=1")
+                continue
             for val, in conn.cursor().execute("select value_id from value_name where feature_id='{}'".format(feature_id)):
                 fields.append(feature_id+"="+str(val))
         fieldToInx=dict([(e,i) for (i,e) in enumerate(fields)])
