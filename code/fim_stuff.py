@@ -14,17 +14,16 @@ transactions = []
 
 if from_sql:
     print("reading from sql")
-    transactions = [x for x in util.read_baskets_from_sqlite(db)]
+    transactions = [x for (car, x) in util.read_baskets_from_sqlite(db)]
 else:
     print("reading from file")
     for line in  open('baskets.basket'):
         transactions.append(line.rstrip('\n').split(','))
 
+
 def ele_to_str(ele):
     global db
-    feat, val = ele.split("=")
-    return util.get_name(db, feat)+": "+util.get_name(db, feat, int(val))
-
+    return util.ele_to_str(db, ele)
 
 sets = map(set, transactions)
 print('running algorithm')

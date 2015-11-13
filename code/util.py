@@ -4,22 +4,24 @@ import sys
 def make_sqlite_cursor(filename, row_factory=False):
     connection = sqlite3.connect(filename)
     if row_factory: connection.row_factory = sqlite3.Row
-    return connection.cursor()
+    return connection.cursor(), connection
 
-def read_baskets_from_sqlite(filename):
-    cursor = make_sqlite_cursor(filename, True)
+def read_baskets_from_sqlite(filename, budget=True):
+    cursor,conn = make_sqlite_cursor(filename)
 
     previousCarId = None
     basket = []
-    for r in cursor.execute("select car_id, feature_id, value_id from feature where value_id != 0 order by car_id asc"):
-        if (previousCarId != r['car_id']): # next car
+    for car_id,feature_id,value_id in cursor.execute("select car_id, feature_id, value_id from feature where value_id != 0 order by car_id asc"):
+        if not budget and feature_id == "budget_F":
+            continue
+        if (previousCarId != car_id): # next car
             if (previousCarId != None):    
-                yield basket
+                yield previousCarId,basket
             basket = [] # clear it
-        basket.append(r['feature_id'] + "=" + str(r['value_id'])) # add current feature to the basket
-        previousCarId = r['car_id']
+        basket.append(feature_id + "=" + str(value_id)) # add current feature to the basket
+        previousCarId = car_id
     # last basket
-    yield basket
+    yield previousCarId, basket
 
 
 feature_name_dict = None
@@ -29,7 +31,7 @@ def get_name(sqlite_filename, feature_id, value_id=None):
     global feature_name_dict, value_name_dict
 
     if feature_name_dict == None:
-        cursor = make_sqlite_cursor(sqlite_filename)
+        cursor,conn = make_sqlite_cursor(sqlite_filename)
         feature_name_dict = {}
         value_name_dict = {}
         for id, name in cursor.execute("select * from feature_name"):
@@ -46,6 +48,9 @@ def get_name(sqlite_filename, feature_id, value_id=None):
     else:
         return feature_name_dict[feature_id]
     
+def ele_to_str(db, ele):
+    feat, val = ele.split("=")
+    return get_name(db, feat)+": "+get_name(db, feat, int(val))
 
 if __name__ == '__main__':
     seperator = ","
