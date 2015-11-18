@@ -1,0 +1,44 @@
+
+Für die Pakete:
+
+- Leute mit Sportpaket (2.7%) nehmen auch:
+	- Parkassistent (77%)
+	- Navigationssystem Business (68%)
+	- alle anderen Optionen nur mit < 65%
+- Leute mit Comfortpaket (24.7%) nehmen auch:
+	- alle Optionen nur mit < 65% Wsk.
+- Leute mit Ablagenpaket (15.2%) nehmen auch:
+	- alle Optionen nur mit < 65% Wsk.
+- Leute mit Lichtpaket Interieur (20%) nehmen auch:
+	- Xenonlicht für Abblend- und Fernlicht (73%)
+	- Klimaautomatik, 2 Zonen (71%)
+	- Sitzheizung (71%)
+	- Parkassistent (70%)
+
+Andere Folgerungen:
+
+```
+80.39% of 81741 people: If (Alarmanlage: 1) then (Parkassistent: 1)
+80.77% of 34451 people: If (Sonnenschutzrollo für Heckscheibe, elektrisch: 1) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang: 1)
+81.41% of 40487 people: If (Head Up Display (HUD): 1) then (Navigationssystem Business: 1)
+81.68% of 40621 people: If (Head Up Display (HUD): 1) then (Sitzheizung für Fahrer und Beifahrer: 1)
+81.81% of 67007 people: If (Vollelektrische Sitzverstellung mit Memoryfunktion für Fahrer: 1) then (Sitzheizung für Fahrer und Beifahrer: 1)
+82.21% of 47387 people: If (Allradsystem xDrive: 1) then (Parkassistent: 1)
+83.03% of 35413 people: If (Sonnenschutzrollo für Heckscheibe, elektrisch: 1) then (Parkassistent: 1)
+83.95% of 48829 people: If (Komfortzugang: 1) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang: 1)
+84.03% of 58428 people: If (Variable Sportlenkung: 1) then (Sitzheizung für Fahrer und Beifahrer: 1)
+85.07% of 69680 people: If (Vollelektrische Sitzverstellung mit Memoryfunktion für Fahrer: 1) then (Navigationssystem Business: 1)
+85.09% of 42318 people: If (Head Up Display (HUD): 1) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang: 1)
+85.16% of 42918 people: If (Spurverlassenswarnung: 1) then (Sitzheizung für Fahrer und Beifahrer: 1)
+85.21% of 42378 people: If (Head Up Display (HUD): 1) then (Xenonlicht für Abblend- und Fernlicht: 1)
+85.26% of 42970 people: If (Spurverlassenswarnung: 1) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang: 1)
+85.33% of 36395 people: If (Sonnenschutzrollo für Heckscheibe, elektrisch: 1) then (Navigationssystem Business: 1)
+85.36% of 59354 people: If (Variable Sportlenkung: 1) then (Parkassistent: 1)
+85.76% of 49882 people: If (Komfortzugang: 1) then (Xenonlicht für Abblend- und Fernlicht: 1)
+86.54% of 70885 people: If (Vollelektrische Sitzverstellung mit Memoryfunktion für Fahrer: 1) then (Xenonlicht für Abblend- und Fernlicht: 1)
+87.09% of 43892 people: If (Spurverlassenswarnung: 1) then (Parkassistent: 1)
+88.64% of 44675 people: If (Spurverlassenswarnung: 1) then (Navigationssystem Business: 1)
+88.97% of 51749 people: If (Komfortzugang: 1) then (Navigationssystem Business: 1)
+90.54% of 52662 people: If (Komfortzugang: 1) then (Sitzheizung für Fahrer und Beifahrer: 1)
+90.92% of 54429 people: If (Spurwechselwarnung: 1) then (Parkassistent: 1)
+```

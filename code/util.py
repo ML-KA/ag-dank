@@ -1,18 +1,21 @@
 import sqlite3
 import sys
+import re
 
 def make_sqlite_cursor(filename, row_factory=False):
     connection = sqlite3.connect(filename)
     if row_factory: connection.row_factory = sqlite3.Row
     return connection.cursor(), connection
 
-def read_baskets_from_sqlite(filename, budget=True):
+def read_baskets_from_sqlite(filename, budget=True, filter_fun=lambda (feature, value): True):
     cursor,conn = make_sqlite_cursor(filename)
 
     previousCarId = None
     basket = []
     for car_id,feature_id,value_id in cursor.execute("select car_id, feature_id, value_id from feature where value_id != 0 order by car_id asc"):
         if not budget and feature_id == "budget_F":
+            continue
+        if not filter_fun(feature_id, value_id):
             continue
         if (previousCarId != car_id): # next car
             if (previousCarId != None):    
@@ -35,6 +38,7 @@ def get_name(sqlite_filename, feature_id, value_id=None):
         feature_name_dict = {}
         value_name_dict = {}
         for id, name in cursor.execute("select * from feature_name"):
+            name = re.sub(" ?{Graphic: .*}", "", name)
             feature_name_dict[id] = name
         for feat_id, val_id, name in cursor.execute("select * from value_name"):
             if feat_id not in value_name_dict:
