@@ -1,8 +1,10 @@
 #!/usr/bin/env python2
+from __future__ import print_function
 import fim
 import sys
 import util
 import random
+import time
 db="../output.sqlite"
 from_sql = False
 if len(sys.argv) != 2:
@@ -22,10 +24,10 @@ def filter_fun_str(item):
     return filter_fun(feat, val_id)
 
 if from_sql:
-    print("reading from sql")
+    print("reading from sql", file=sys.stderr)
     transactions = [x for (car, x) in util.read_baskets_from_sqlite(db, false, filter_fun)]
 else:
-    print("reading from file")
+    print("reading from file", file=sys.stderr)
     for line in  open('baskets.basket'):
         transactions.append([x for x in line.rstrip('\n').split(',') if filter_fun_str(x) ])
 
@@ -38,7 +40,8 @@ def ele_to_str(ele):
     return util.ele_to_str(db, ele)
 
 sets = map(set, transactions)
-print('running algorithm')
+print('running algorithm', file=sys.stderr)
+before = time.time()
 if algo == "eclat":
     s = fim.eclat(transactions, supp=2)
     s = sorted(s, key=lambda x:x[1])
@@ -82,3 +85,6 @@ elif algo == "arules":
         print(u"lift={} | {} {:6.2f}% of {} eles: If ({}) then ({})".format(lift, interestingness, confidence_percent, support_count, " & ".join(condition), consequence).encode('utf-8'))
 else:
     print("unknown algo")
+
+after = time.time()
+print("running {} took {} seconds for {} entries".format(algo, after-before, len(transactions)), file=sys.stderr)

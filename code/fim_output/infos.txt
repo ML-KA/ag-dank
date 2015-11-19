@@ -22,6 +22,12 @@ Bzgl Lift:
 - Viele Andere Zusammenhänge von "Line: Luxury" mit edleren Komponenten
 
 
+Laufzeit (für 1 Mio Konfigurationen mit pyfim)
+
+- Apriori inkl. Lift-Berechnung: 13.4s
+
+---
+
 Andere Folgerungen (nur binäre):
 
 ```
