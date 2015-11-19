@@ -1,6 +1,16 @@
 - viele Erzwungene Zusammenhänge werden sichtbar, z.B. Line: Luxury hängt zu 100% mit "Luxury" Rädern und Edelholzleisten zusammen.
 
-Für die Pakete:
+## Apriori-Algo
+
+Allgemein häufige Item-Sets:
+
+- 52% Parkassistent
+- 49% Navigationssystem Business
+- 48% Sitzheizung
+- 45% Xenonlicht
+- 43% Line: Sportline
+
+In Bezug auf die Pakete:
 
 - Leute mit Sportpaket (2.7%) nehmen auch:
 	- Parkassistent (77%)
@@ -22,9 +32,15 @@ Bzgl Lift:
 - Viele Andere Zusammenhänge von "Line: Luxury" mit edleren Komponenten
 
 
-Laufzeit (für 1 Mio Konfigurationen mit pyfim)
+Laufzeit auf Laptop (für 1 Mio Konfigurationen mit pyfim)
 
-- Apriori inkl. Lift-Berechnung: 13.4s
+- Apriori-Common-Itemsets: 5.6s (findet 244k Sets mit support≥2%)
+- Apriori-Regeln inkl. Lift-Berechnung: 1.4s (support≥10%)
+- Apriori-Regeln inkl. Lift-Berechnung: 13.4s (support≥2%)
+
+(Apriori skaliert linear in Anzahl Transaktionen)
+
+- pyfim hat auch andere Algorithmen mit gleichem Interface (z.B. eclat)
 
 ---
 

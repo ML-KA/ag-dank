@@ -31,7 +31,8 @@ else:
     for line in  open('baskets.basket'):
         transactions.append([x for x in line.rstrip('\n').split(',') if filter_fun_str(x) ])
 
-print(len(transactions))
+trcount = len(transactions)
+print(trcount)
 transactions = filter(lambda x: len(x) >= 1, transactions)
 print(len(transactions))
 
@@ -42,6 +43,12 @@ def ele_to_str(ele):
 sets = map(set, transactions)
 print('running algorithm', file=sys.stderr)
 before = time.time()
+if algo == "apriori":
+    s = fim.apriori(transactions, supp=2)
+    s = sorted(s, key=lambda x:x[1])
+    for items,supp in s:
+        items = map(ele_to_str, items)
+        print(u"{} items: {}".format(supp/float(trcount), "|".join(items)).encode('utf-8'))
 if algo == "eclat":
     s = fim.eclat(transactions, supp=2)
     s = sorted(s, key=lambda x:x[1])
