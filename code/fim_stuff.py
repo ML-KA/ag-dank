@@ -14,7 +14,7 @@ transactions = []
 calculate_interestingness = False
 
 def filter_fun(feature_id, value_id):
-    return feature_id.startswith("s7_")
+    return True#feature_id.startswith("s7_")
 
 def filter_fun_str(item):
     feat, val = item.split("=")
@@ -29,6 +29,9 @@ else:
     for line in  open('baskets.basket'):
         transactions.append([x for x in line.rstrip('\n').split(',') if filter_fun_str(x) ])
 
+print(len(transactions))
+transactions = filter(lambda x: len(x) >= 1, transactions)
+print(len(transactions))
 
 def ele_to_str(ele):
     global db
@@ -50,11 +53,12 @@ elif algo == "eclat-rules":
         consequence = ele_to_str(consequence)
         print(u"{:6.2f}% of {} eles: If {} then {}".format(confidence_percent, support_count, " & ".join(condition), consequence))
 elif algo == "arules":
-    rules = fim.arules(transactions, supp=2, conf=65)
+    rules = fim.arules(transactions, supp=2, conf=75, report='aCl', eval='l', thresh=30)
     #random.shuffle(rules) # lambda x: x[3])
-    rules = sorted(rules, key = lambda x: x[3]) # sort by confidence %
-    rules = sorted(rules, key = lambda x: -len(x[1])) # sort by confidence %
-    for consequence, condition, support_count, confidence_percent in rules:
+    #rules = sorted(rules, key = lambda x: x[3]) # sort by confidence %
+    rules = sorted(rules, key = lambda x: x[4]) # sort by lift
+    rules = sorted(rules, key = lambda x: -len(x[1])) # sort by condition length
+    for consequence, condition, support_count, confidence_percent, lift in rules:
         conditionSet = set(condition)
         #den = [c for c in sets if not conditionSet.issubset(c)]
         #num = [c for c in den if consequence in c]
@@ -75,6 +79,6 @@ elif algo == "arules":
 
         condition = map(ele_to_str, condition)
         consequence = ele_to_str(consequence)
-        print(u"{} {:6.2f}% of {} eles: If ({}) then ({})".format(interestingness, confidence_percent, support_count, " & ".join(condition), consequence).encode('utf-8'))
+        print(u"lift={} | {} {:6.2f}% of {} eles: If ({}) then ({})".format(lift, interestingness, confidence_percent, support_count, " & ".join(condition), consequence).encode('utf-8'))
 else:
     print("unknown algo")

@@ -1,0 +1,85 @@
+- viele Erzwungene Zusammenhänge werden sichtbar, z.B. Line: Luxury hängt zu 100% mit "Luxury" Rädern und Edelholzleisten zusammen.
+
+Für die Pakete:
+
+- Leute mit Sportpaket (2.7%) nehmen auch:
+	- Parkassistent (77%)
+	- Navigationssystem Business (68%)
+	- alle anderen Optionen nur mit < 65%
+- Leute mit Comfortpaket (24.7%) nehmen:
+	- alle Optionen nur mit < 65% Wsk.
+- Leute mit Ablagenpaket (15.2%) nehmen:
+	- alle Optionen nur mit < 65% Wsk.
+- Leute mit Lichtpaket Interieur (20%) nehmen auch:
+	- Xenonlicht für Abblend- und Fernlicht (73%)
+	- Klimaautomatik, 2 Zonen (71%)
+	- Sitzheizung (71%)
+	- Parkassistent (70%)
+
+Bzgl Lift:
+
+- Wenn man Polster Stoff "Salome" Sattelbraun / Anthrazit oder "Luxury" Räder gewählt hat, ist es 10x so Wahrscheinlich dass man Leisten in Edelholzausführung Nussbaumwurzel wählt.
+- Viele Andere Zusammenhänge von "Line: Luxury" mit edleren Komponenten
+
+
+Andere Folgerungen (nur binäre):
+
+```
+80.39% of 81741 people: If (Alarmanlage) then (Parkassistent)
+80.77% of 34451 people: If (Sonnenschutzrollo für Heckscheibe, elektrisch) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang)
+81.41% of 40487 people: If (Head Up Display (HUD)) then (Navigationssystem Business)
+81.68% of 40621 people: If (Head Up Display (HUD)) then (Sitzheizung für Fahrer und Beifahrer)
+81.81% of 67007 people: If (Vollelektrische Sitzverstellung mit Memoryfunktion für Fahrer) then (Sitzheizung für Fahrer und Beifahrer)
+82.21% of 47387 people: If (Allradsystem xDrive) then (Parkassistent)
+83.03% of 35413 people: If (Sonnenschutzrollo für Heckscheibe, elektrisch) then (Parkassistent)
+83.95% of 48829 people: If (Komfortzugang) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang)
+84.03% of 58428 people: If (Variable Sportlenkung) then (Sitzheizung für Fahrer und Beifahrer)
+85.07% of 69680 people: If (Vollelektrische Sitzverstellung mit Memoryfunktion für Fahrer) then (Navigationssystem Business)
+85.09% of 42318 people: If (Head Up Display (HUD)) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang)
+85.16% of 42918 people: If (Spurverlassenswarnung) then (Sitzheizung für Fahrer und Beifahrer)
+85.21% of 42378 people: If (Head Up Display (HUD)) then (Xenonlicht für Abblend- und Fernlicht)
+85.26% of 42970 people: If (Spurverlassenswarnung) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang)
+85.33% of 36395 people: If (Sonnenschutzrollo für Heckscheibe, elektrisch) then (Navigationssystem Business)
+85.36% of 59354 people: If (Variable Sportlenkung) then (Parkassistent)
+85.76% of 49882 people: If (Komfortzugang) then (Xenonlicht für Abblend- und Fernlicht)
+86.54% of 70885 people: If (Vollelektrische Sitzverstellung mit Memoryfunktion für Fahrer) then (Xenonlicht für Abblend- und Fernlicht)
+87.09% of 43892 people: If (Spurverlassenswarnung) then (Parkassistent)
+88.64% of 44675 people: If (Spurverlassenswarnung) then (Navigationssystem Business)
+88.97% of 51749 people: If (Komfortzugang) then (Navigationssystem Business)
+90.54% of 52662 people: If (Komfortzugang) then (Sitzheizung für Fahrer und Beifahrer)
+90.92% of 54429 people: If (Spurwechselwarnung) then (Parkassistent)
+```
+
+Andere Werte mit hohem Lift:
+
+```
+
+lift=15.906653288 | 0  95.61% of 21908 eles: If (Spurverlassenswarnung: 1 & Armauflage vorn, verstellbar für Fahrer: 1) then (Spurwechselwarnung: 1)
+lift=15.9336817238 | 0  95.77% of 20140 eles: If (Spurverlassenswarnung: 1 & Ablagenpaket: 1) then (Spurwechselwarnung: 1)
+lift=16.0245494135 | 0  96.31% of 20434 eles: If (Spurverlassenswarnung: 1 & Polster: Leder Dakota Schwarz mit roter Kontrastnaht) then (Spurwechselwarnung: 1)
+lift=16.3147612246 | 0  82.55% of 26116 eles: If (Spurwechselwarnung: 1 & Lichtpaket Interieur: 1) then (Spurverlassenswarnung: 1)
+lift=16.5464870325 | 0  83.72% of 18786 eles: If (Spurwechselwarnung: 1 & Adaptives M Fahrwerk (VDC) mit Fahrzeugtieferlegung: 1) then (Spurverlassenswarnung: 1)
+lift=16.9168642667 | 0  77.80% of 17446 eles: If (Polster: Leder Dakota Oyster mit Kontrastnaht in oyster dunkel & Klimaautomatik, 2 Zonen mit erweitertem Umfang: 1) then (Raeder: 18'' Alu "Modern")
+lift=16.9753222966 | 0  85.89% of 17829 eles: If (Spurwechselwarnung: 1 & Rückfahrkamera: 1) then (Spurverlassenswarnung: 1)
+lift=17.3645121713 | 0  87.86% of 20140 eles: If (Spurwechselwarnung: 1 & Ablagenpaket: 1) then (Spurverlassenswarnung: 1)
+lift=17.8853609108 | 0  90.50% of 18040 eles: If (Komfortzugang: 1 & Aktive Geschwindigkeitsregelung mit Stop & Go Funktion: 1) then (Spurverlassenswarnung: 1)
+lift=17.9078929113 | 0  76.68% of 18283 eles: If (Vollelektrische Sitzverstellung mit Memoryfunktion für Fahrer: 1 & Alarmanlage: 1) then (Sonnenschutzrollo für Heckscheibe, elektrisch: 1)
+lift=18.7918878923 | 0  95.09% of 19271 eles: If (Spurwechselwarnung: 1 & Variable Sportlenkung: 1) then (Spurverlassenswarnung: 1)
+lift=18.8751943598 | 0  95.51% of 20556 eles: If (Spurwechselwarnung: 1 & Komfortzugang: 1) then (Spurverlassenswarnung: 1)
+lift=19.2441266409 | 0  82.41% of 17105 eles: If (Spurwechselwarnung: 1 & Rückfahrkamera: 1) then (Sonnenschutzrollo für Heckscheibe, elektrisch: 1)
+lift=2.27171193731 | 0  85.09% of 42318 eles: If (Head Up Display (HUD): 1) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang: 1)
+lift=2.27627555754 | 0  85.26% of 42970 eles: If (Spurverlassenswarnung: 1) then (Klimaautomatik, 2 Zonen mit erweitertem Umfang: 1)
+lift=2.49376253133 | 0  76.60% of 62738 eles: If (Vollelektrische Sitzverstellung mit Memoryfunktion für Fahrer: 1) then (Automatik Getriebe: 1)
+lift=2.51860719499 | 0  75.74% of 38171 eles: If (Spurverlassenswarnung: 1) then (HiFi-System: 1)
+lift=3.85802119583 | 0  95.75% of 164828 eles: If (Polster: Stoff Anthrazit) then (Line: Keine Line)
+lift=3.93415230517 | 0  97.64% of 57442 eles: If (Polster: Leder Dakota Schwarz) then (Line: Keine Line)
+lift=4.65103559361 | 0  80.38% of 25857 eles: If (Raeder: 16'' Alu "Basis") then (Polster: Stoff Anthrazit)
+lift=4.71004867956 | 0  81.40% of 49670 eles: If (Raeder: 16'' Alu "Basis") then (Polster: Stoff Anthrazit)
+lift=5.09192881201 | 0  80.30% of 34073 eles: If (Raeder: 16 Zoll Stahlräder mit Radvollblenden) then (Leisten: Satinsilber, matt)
+lift=5.95112465993 | 0  96.30% of 45443 eles: If (Polster: Stoff-Lederkombination Anthrazit) then (Line: Modern)
+lift=6.02944320797 | 0  97.57% of 46724 eles: If (Polster: Stoff-Lederkombination Oyster) then (Line: Modern)
+lift=6.05536458592 | 0  97.98% of 51489 eles: If (Polster: Leder Dakota Oyster mit Kontrastnaht in oyster dunkel) then (Line: Modern)
+lift=7.72051040099 | 0  96.61% of 45593 eles: If (Polster: Stoff „Salome“ Sattelbraun / Anthrazit) then (Line: Luxury)
+lift=7.76450453372 | 0  97.16% of 38456 eles: If (Polster: Leder Dakota Schwarz) then (Line: Luxury)
+lift=9.57275843295 | 0  84.42% of 44667 eles: If (Raeder: 17'' Alu "Luxury") then (Leisten: Edelholzausführung Nussbaumwurzel mit Akzentleiste in Chrom)
+lift=10.0546922211 | 0  88.67% of 41848 eles: If (Polster: Stoff „Salome“ Sattelbraun / Anthrazit) then (Leisten: Edelholzausführung Nussbaumwurzel mit Akzentleiste in Chrom)
